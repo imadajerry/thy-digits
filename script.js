@@ -70,30 +70,41 @@ let isDrawing = false;
 let lastDraw = 0;
 const drawInterval = 80;
 
-function createPetal(x, y) {
-  const petal = document.createElement('div');
-  petal.className = 'petal';
-  petal.style.left = `${x}px`;
-  petal.style.top = `${y}px`;
+function createParticle(x, y, isLeaf = false) {
+  const el = document.createElement('div');
+  el.className = 'particle ' + (isLeaf ? 'leaf' : 'petal');
+  el.style.left = `${x}px`;
+  el.style.top = `${y}px`;
 
-  const moveX = (Math.random() - 0.5) * 100;  
-  const moveY = -60 - Math.random() * 60;
+  const moveX = (Math.random() - 0.5) * 120;
+  const moveY = -60 - Math.random() * 100;
   const rotation = (Math.random() - 0.5) * 180;
+  const scale = 0.6 + Math.random() * 0.8;
 
-  petal.style.setProperty('--x', `${moveX}px`);
-  petal.style.setProperty('--y', `${moveY}px`);
-  petal.style.setProperty('--rot', `${rotation}deg`);
+  el.style.setProperty('--x', `${moveX}px`);
+  el.style.setProperty('--y', `${moveY}px`);
+  el.style.setProperty('--rot', `${rotation}deg`);
+  el.style.setProperty('--scale', scale.toFixed(2));
 
-  document.body.appendChild(petal);
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 2000);
+}
 
-  setTimeout(() => petal.remove(), 1600);
+function scatterParticles(x, y) {
+  const count = 2 + Math.floor(Math.random() * 2);
+  for (let i = 0; i < count; i++) {
+    const isLeaf = Math.random() < 0.30;
+    const offsetX = (Math.random() - 0.5) * 40;
+    const offsetY = (Math.random() - 0.5) * 40;
+    createParticle(x + offsetX, y + offsetY, isLeaf);
+  }
 }
 
 function handleDraw(x, y) {
   const now = Date.now();
   if (now - lastDraw > drawInterval) {
     lastDraw = now;
-    createPetal(x, y);
+    scatterParticles(x, y);
   }
 }
 

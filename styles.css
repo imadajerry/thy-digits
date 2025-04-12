@@ -130,25 +130,37 @@ input#ph-no {
   position: relative;
 }
 
-.petal {
+.particle {
   position: absolute;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: floatWind 2s ease-out forwards;
+}
+
+.petal {
   width: 12px;
   height: 20px;
   background: pink;
   border-radius: 50% 50% 50% 0;
   transform: rotate(45deg);
-  opacity: 0.8;
-  pointer-events: none;
-  animation: floatWind 1.6s ease-out forwards;
+}
+
+.leaf {
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(to right, #7bc96f, #4caf50);
+  border-radius: 40% 60% 60% 40%;
+  transform: rotate(-30deg);
 }
 
 @keyframes floatWind {
   0% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    transform: translate(0, 0) scale(var(--scale)) rotate(0deg);
     opacity: 1;
   }
   100% {
-    transform: translate(var(--x), var(--y)) scale(0.6) rotate(var(--rot));
+    transform: translate(var(--x), var(--y)) scale(calc(var(--scale) * 0.6))
+      rotate(var(--rot));
     opacity: 0;
     filter: blur(1px);
   }
