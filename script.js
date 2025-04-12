@@ -15,7 +15,7 @@ function sendMail() {
             alert("Twas my pleasure");   
             document.getElementById("ph-no").value = "";
         }, function(error) {
-            alert("Alas! Something went awry... 😓\nThy message could not be sent. Try again anon.");
+            alert("Alas! Something went awry... \nThy message could not be sent. Try again anon.");
             console.error("EmailJS Error:", error);
         });
     document.getElementById("ph-no").value = "";
@@ -55,7 +55,7 @@ confirmYes.addEventListener("click", () => {
 
     if (response) {
         digitEntry.classList.add("hidden");
-        alert("Alas! I shall retreat");
+        alert("Alas! I shall retreat.");
     } else {
         alert("Then hope yet lingers in the air!");
     }
