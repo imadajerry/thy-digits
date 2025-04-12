@@ -12,7 +12,7 @@ function sendMail() {
 
     emailjs.send("service_2wu075r", "template_t1wfur8", params)
         .then(function(response) {
-            alert("Tis was my pleasure");   
+            alert("Twas my pleasure");   
             document.getElementById("ph-no").value = "";
         }, function(error) {
             alert("Alas! Something went awry... 😓\nThy message could not be sent. Try again anon.");
