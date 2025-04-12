@@ -19,10 +19,10 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <div class="main-content" id="main-content">
+    <div class="container d-flex flex-column">
+        <div class="main-content  d-flex flex-column" id="main-content">
             <h1 class="text-center">Wilt thou bestow upon me thy digits?</h1>
-            <div class="btns">
+            <div class="btns d-flex">
                 <button id="yes-btn" class="btn"  onclick="yesBtn()">Verily</button>
                 <button id="no-btn" class="btn" onclick="noBtn()">Nah</button>
             </div>
@@ -31,14 +31,14 @@
         <div id="digit-entry" class="d-flex hidden">
             <label for="ph-no" class="text-center">Enter thy sacred digits hither:</label>
             <input type="tel" name="ph-no" id="ph-no">
-            <button class="btn" type="button" onclick="sendMail()">Deliver &#128330;</button>
+            <button class="btn primary-btn" type="button" onclick="sendMail()">Deliver &#128330;</button>
         </div>
     </div>
-    <div id="custom-confirm" class="modal hidden">
-        <div class="modal-content">
+    <div id="custom-confirm" class="modal d-flex hidden">
+        <div class="modal-content d-flex">
             <p>Art thou certain thou wish to say no?</p>
-            <button id="confirm-yes" class="btn">Aye, I am resolute</button>
-            <button id="confirm-no" class="btn">Nay, I hath reconsidered</button>
+            <button id="confirm-yes" class="btn secondary-btn">Aye, I am resolute</button>
+            <button id="confirm-no" class="btn primary-btn">Nay, I hath reconsidered</button>
         </div>
     </div>    
     <script src="script.js"></script>
