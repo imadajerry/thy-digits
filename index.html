@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thy Digits</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "SHsvvtpTmwqk7S8HR",
+        });
+    })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content" id="main-content">
+            <h1 class="text-center">Wilt thou bestow upon me thy digits?</h1>
+            <div class="btns">
+                <button id="yes-btn" class="btn"  onclick="yesBtn()">Verily</button>
+                <button id="no-btn" class="btn" onclick="noBtn()">Nah</button>
+            </div>
+        </div>
+        
+        <div id="digit-entry" class="d-flex hidden">
+            <label for="ph-no" class="text-center">Enter thy sacred digits hither:</label>
+            <input type="tel" name="ph-no" id="ph-no">
+            <button class="btn" type="button" onclick="sendMail()">Deliver &#128330;</button>
+        </div>
+    </div>
+    <div id="custom-confirm" class="modal hidden">
+        <div class="modal-content">
+            <p>Art thou certain thou wish to say no?</p>
+            <button id="confirm-yes" class="btn">Aye, I am resolute</button>
+            <button id="confirm-no" class="btn">Nay, I hath reconsidered</button>
+        </div>
+    </div>    
+    <script src="script.js"></script>
+</body>
+</html>
